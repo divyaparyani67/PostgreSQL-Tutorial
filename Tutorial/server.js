@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 db.sequelize
-  .sync( {force:true})
+  .sync({ force: true })
   .then(() => {
     console.log("synced db.");
   })
@@ -36,13 +36,12 @@ db.sequelize
 
 //simple route
 
-
 app.get("/", (req, res) => {
   res.json({ message: "Welcome  to  bezkoder application." });
 });
 
 //set port, listen for requests
-//require("./app/routes/tutorial.routes")(app);
+require("./app/routes/tutorial.routes")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

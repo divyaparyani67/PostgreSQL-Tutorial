@@ -1,8 +1,5 @@
 const db = require("../models");
 
-
-
-
 const Tutorial = db.tutorial;
 const Op = db.Sequelize.Op;
 
@@ -21,7 +18,7 @@ exports.create = (req, res) => {
   const tutorial = {
     title: req.body.title,
     description: req.body.description,
-    published: req.body.published ? req.body.published : false
+    published: req.body.published ? req.body.published : false,
   };
 
   //save tutorial in the database
@@ -34,7 +31,7 @@ exports.create = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "some erroe occured while creating the tutorial",
+          err.message || "some error occured while creating the tutorial",
       });
     });
 };
